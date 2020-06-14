@@ -1,49 +1,46 @@
 language: go
 sudo: required
-
 env:
   global:
-    - CGO_ENABLED=0
-    - GO111MODULE=on
-    - secure: "qM2yicBcxd3gt01/2othsHfzJK8tPTs1YqBl1Ss4m7lmt3OvPdAzkcDaKnmbrnUuIbVq8+PolyYbj7CI9VGUJj2XkR7FqwT9rD4ZyHpe0lmcK8RkX3KnL8JeBM7wmCKgISBexeskVlJNaFeZTlMjRt7GUKgnLCudl9hRq6f3C3lE8eAITtuHiWriK7Wo/m2nSJCxuG1WQG8LebJd8/5QnA5IyRAlEE6qCpB1yLuGKvSXPb4xEw9MVJJgw/SediYzAYbuvaS+qiUikdmHpFfOBJpSTtJM3R7y+IbRnBt7SGeZKGTi2D159H2F4i/eZjBhwyom/tmgRzQtw1OnqRA2GrkwT9Lqc5fEBU2txQso42Gn1JQ5MTd0fhyR7LWw2Wnc9r0WHD+MNU0Np1meDm6ar7TImOaDZWhBai6kpj8Of/Yucpy/AFyUJSV5yUTNKSO7TKbQMI1b9zlV9vz/YXfoPOIk8Rw960GOTAPJwIKQPfcG5dZ1S86P7DWHxx9JD7zd+5FG2FtPuOdbIt0FMqs4Dg9aQ6e2T4LhuWViIpj1pLWpjdFnSMxuG6YfRomr8q0HQwabm16iKEnRdFcBbnH4ebRlW1CMyGuVYfqYlQeDVYpjDevJQOkHld+RU/ypLMYROJCIbFqJXiYy8Lhrumxg7Ev7gty8YdW6ckqsSQTraFg="
-    - secure: "LH1hsqpt/AQaMzqIsgKP3P3HHmwjZdBP/f2x9xhlTrYFu5nM1lK8P2jEDLmVnnnHiMK29pAMPp0yUqN6bD/UnQnH67tLKUlOLFfmVArD+JKlD1Ac/ch5CWCWtX7jbui8feGJnuuKlgg1OyDVPxYg5urLWN+8RH1RYZkW3hghP0zeeAi6Ge4la40H3e80wFl8pbVco6TYkPsBKQ87+ptJk1j68PNEqdLDhXE6Gnu3HDu+zB1DKg/NoBRnBnnVT7LhmvePEKT1IDhwQmgXrkpcL7woyuwKJKk6eoEoxxqnDJHbIqGqvXNn9PcUOuq0dX0NHhKWkcEAKvc/ydZPV0X4aLffb/evtXidIRCccBw0jis/QD+goXL1SkkHsfcv2s+pWlthErrnZpih8qvJ7reA7TfyxIKaul8aeqaoqU5NpjEnb94aS2K+kqQeOJ17q4gPJOSo7bK17oZJpZs5vkFPbX0Hw8/Diwesw2EhoibOVg4ZO+JBoCcPjK37Q5o4aQAfQ5T+jlBYzgKKdgom1qR6HDD/oGJobIwN+FCd1oJ8pw+Al+JlJF6k+R3k/s3A78vVd6kF7IiZGXTMpLA4Kl0MKOioA6Jn+5p+/yWok7c0/D4rEQkowGhKjfjzBwsjfKlCe3Y0RpzQMljNJO6LoGY1WMqPD5k2uQGyDgZHSo1dFc4="
-
+  - CGO_ENABLED=0
+  - GO111MODULE=on
+  - secure: "KKZEf6MtQUX0aVPv7vT1h7JjgHbGH8goo0MSGxUmHeW01IS7bdPibw+QjkCxEeDYD5H9c5Uh4aVT0fOrJxHsWWlMW/Uvj+FHbXuwT6CVh/dIrnWq/1sUmdIO+n5QrURDHTxDfkhFF4Ozc1TOb8NBM/ggElQk7YVgNpIyEOanIpdsM4g/cutXNNnbxtMG5/pdfksrIZILf0TsyMQrDfQIYUiCbM5NnSFI5z3EXKY088ck0brpFCJe1O1j0cXbkqof4vSSBNI0LynmPXJ2oexmkVge3RhIiaNEau4RQ2L73ix2VPcXGxKiz9jK4X0GA/5qENSMfGmHOiIY0tDiNteEv56G0oay1DdTOwSzdt5RazkaVsicn2mHJ5998fBFcfgvV3cqJsj7noT5OxddaLhTCmhSfuoY/kXQ0OADNvPI1indVYljMsepboxtkT3tIKJX+rS2uR4wK0rR9At6KVTaZ2AbUuMg0YV7mCgnYiUmfsBHog8tHGjgMYVWZ3FgyHzv57tDE2RRGwM2TVGZwHZpsFUGuDlMThU/WN05dJvjqWIAClcO1XS8lXaZUGE63HZ0ny30NDTmPxyQ42qjUzhUWlUjf+sAkFV9uJbJIFQxJV6sHtQO64CLYuSWyz0PXcTX8zVk24we2qO0CyjrOddVDx9QN/d6DbQj6gIJjymjRj8="
+  - secure: "t2+kPORzUb1Vo94NsAMmCjvvtQ04i4XdVJU+jQZCZos8wAAjtlElAPGDrh2rdVs3HsCb5Inkn90crsvRfnUQIRvbIUAN/NZqEg8c7ZfgM99tMFG7jW91ayKid5Lg4hpcP7K2XObSK8HWDH7djxr0zeXaoGsytTnmfHwewLcc5qiJluM3tNUQppXHd1rZhZzDG/POj7k6NnOyPnXlu0pcDRgpw1fX1vDkNGXI5Ywr4NMe8NEnXXsxyP6EYT+uZdpxLX3usFC9hWNW84883awdW1tZPdGN9bFf/u+Cdse/TcSXdtme1taB8XPyg0VmYAtJxFMVgVXcHt1VdU22h6Bskhg26Liwqz6wvNMzcNYEFdk6I5EBErrB8Yf1QMGl1aSbPCHQYf/d2NwJgRR9iZ3Lk8uzB+hbdigtCEn5XW4P+ojIah1kWqkWzp9dTRL61SK3pW83PUAaZBbk8BZXyLRPSanEfZ2UIP7rbZ3KALcE8JLer/mx5u9+tGH5ppcG3eE9WvMHQmju48W0/1xcxN3Q4+dAi/BeNLJ7xMcSCv/aDa0tIqI/zjlDSAPx7777A1Xzj+xzdsMvUXmpAdHBqQGEZTlg+UePbvxOAvUXXkEmpgCdpxJSzBuo8MDInC4rkvCNj/+En31mdAtAby97MdwpZ/FnhZuYPNuEzopwz7vmpME="
 services:
 - docker
-
 matrix:
   include:
   - go: 1.13.x
     env:
-     - LATEST=true
+    - LATEST=true
   - go: tip
   allow_failures:
   - go: tip
-
 install:
- - go mod download
- - go get github.com/mitchellh/gox
-
+- go mod download
+- go get github.com/mitchellh/gox
 script:
- - go vet $(go list ./... | grep -v /vendor/)
- - go test -v ./...
- - if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64 386" -output="build/alertmanager-webhook-fcm.{{.OS}}.{{.Arch}}" -ldflags "-extldflags \"-static\" -X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
- - if [ "${LATEST}" = "true" -a -n "${TRAVIS_TAG}" ]; then docker build -t "jaymedh/alertmanager-webhook-fcm:${TRAVIS_TAG}" .; fi
-
+- go vet $(go list ./... | grep -v /vendor/)
+- go test -v ./...
+- if [ "${LATEST}" = "true" ]; then gox -os="linux darwin windows" -arch="amd64 386"
+  -output="build/alertmanager-webhook-fcm.{{.OS}}.{{.Arch}}" -ldflags "-extldflags
+  \"-static\" -X main.Rev=`git rev-parse --short HEAD`" -verbose ./...; fi
+- if [ "${LATEST}" = "true" -a -n "${TRAVIS_TAG}" ]; then docker build -t "jaymedh/alertmanager-webhook-fcm:${TRAVIS_TAG}"
+  .; fi
 deploy:
- - provider: releases
-   skip_cleanup: true
-   api_key:
-     secure: D6zUa6GJWwyykS40t7CKitf8vuXqeGWQBpdE8cimcWmsWu158PIcEG6QNBIDBdZw8t2nxy6n9xqxKnYUYU4rw5UPu9hHCrTCEycMj07uVHvIOt74QU8js9cKjz2aD/Cm4huQDsgSIgy2mguC1qeKjjjGl4m0OKLfMWpB7F9m+1ysTKeghtRj40fzNPzVWeKOpCVBYlX/IvHBV+ObXy25dCOofoCD5QvQafRqQ6g0uRg5bqvDe9ZTly8JmbZhkc0eovxPMQQ7e8Q68nStz/ph+ME/iZEppCBc5JpDMHAlAPS4uO57ZOLsmqIZ8rBUNx+5nKy47z/ERueCezp8bwT2Bdz+SguP1IJSHNTMDilGzIC4VfKxaQE5GMwvkJG21mCG24ny2f5ZWDoXbRR7OdSN1B6wamNOfsMT/CYDfxtnoatkqhwepYtN8RWiBaMawwX/GhJib4xUM/n3lJC13K+c2q5moVdaryN270VdON4XdC+7mgZ9bklVzNFNYVAtAGlZi02AHa/BoTM73X0gtiK8JdgIXEZKLN6h3q0ufLbjRc6NAnyLiXi9B5UeTrKpx4g9lhbS9eKTvLim1gUVd2dyy3uw3mFBLXCjYhqeWzm4+8lwRwInV3iph9/raaYQ/bC7abxYO7zOo3cIeFx3NCltRLCQXpn4RQxJfYN09cYRlV8=
-   file_glob: true
-   file: build/alertmanager-webhook-fcm.*
-   on:
-     repo: jayme-github/alertmanager-webhook-fcm
-     tags: true
-     condition: "$LATEST = true"
- - provider: script
-   script: bash docker_push.sh
-   on:
-     repo: jayme-github/alertmanager-webhook-fcm
-     tags: true
-     condition: "$LATEST = true"
+- provider: releases
+  skip_cleanup: true
+  api_key:
+    secure: UkvJ2JkAdkGHBbRjbnAcmglzvs5Cb+fuTGg+7fSCHnhRULhdRvdAp8WZri0IjzWNxQlRssDvH2rzWc0lE0PSsGQtXoWrXfiJNASpDBnLlzoFnXI225/4phXuWTAqxmWz6vXpFOfvzlt+X22NpUO2qQdhwRvP7vbd2PTG4ki7a5kgBzJOeSLFbvxXY8Gl7Wvca1rVDkyG8HBALU5mehXluvM/mpf9uHnZGbg0+2ppWLIvH9oxhM2e2V5NOEu9keRjby20e4tMPdeY5xeYMmu83DFHECQuNd/M8aiT+sA9apNkaISOgXbcRh/YeGnuZ3wkG7uanZzMY3GpLY4g8akKFiy0VHJhj/4ifoCTPbdf6zaaWL0gNbbMilU9yTUtxpZpz7pManhY3p7BA5ISsSuAxhUL/J+eu1IVKiWg0l0WcX5sdAGl6vH5zZTv9904q3vvHin0ZfHYAWut2iGsZ+00xAHXudL72CFTtpAAExIy148/T66WGMlmGCVqdxr5KMXBtuq+zIusP25ggAcK5/S4MOu85xPsZIycBtYJG5v08KjS9juhn3cU2KYuEIx/UvK8ySB4wDmGWS6A7SuEFCaT48DAX4a0QSYyQrd65askUcSD3ct7ZKETf9qqri25RIA/ydUuzzGyRgHX0El2k5ZYqFlaxRfUlxKWidyvMIBuvJo=
+  file_glob: true
+  file: build/alertmanager-webhook-fcm.*
+  on:
+    repo: jayme-github/alertmanager-webhook-fcm
+    tags: true
+    condition: "$LATEST = true"
+- provider: script
+  script: bash docker_push.sh
+  on:
+    repo: jayme-github/alertmanager-webhook-fcm
+    tags: true
+    condition: "$LATEST = true"
