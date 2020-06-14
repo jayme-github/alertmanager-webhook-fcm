@@ -30,6 +30,13 @@ var (
 		},
 		[]string{"type"},
 	)
+	fcmMessages = promauto.NewCounterVec(
+		prometheus.CounterOpts{
+			Name: "alertmanager_webhook_fcm_messages_total",
+			Help: "Total number of messages seind to Firebase Cloud Messaging API.",
+		},
+		[]string{"handler", "topic"},
+	)
 	fcmErrors = promauto.NewCounterVec(
 		prometheus.CounterOpts{
 			Name: "alertmanager_webhook_fcm_errors_total",
@@ -45,7 +52,7 @@ func main() {
 
 	fcmClient, err = NewMessaging()
 	if err != nil {
-		log.Fatalf("error getting Messaging client. Do you have GOOGLE_APPLICATION_CREDENTIALS set?: %v\n", err)
+		log.Fatalf("error getting Messaging client: %v\nDo you have GOOGLE_APPLICATION_CREDENTIALS set?\n", err)
 	}
 
 	router := httprouter.New()

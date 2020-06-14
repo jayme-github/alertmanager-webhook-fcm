@@ -46,6 +46,7 @@ func genericHandler(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 	topic := getParamTopic(ps)
 	message := NewMessage(topic, data.Title, data.Body)
 	msg, err := fcmClient.Send(req.Context(), message)
+	fcmMessages.WithLabelValues(ps.MatchedRoutePath(), topic).Inc()
 
 	if err != nil {
 		fcmErrors.WithLabelValues(ps.MatchedRoutePath(), topic).Inc()
@@ -115,6 +116,7 @@ func processFcmMessage(ctx context.Context, routePath, topic string, m *template
 
 	// Send a message to the devices subscribed to the topic.
 	fcmResponse, err := fcmClient.Send(ctx, message)
+	fcmMessages.WithLabelValues(routePath, topic).Inc()
 	if err != nil {
 		fcmErrors.WithLabelValues(routePath, topic).Inc()
 	}
