@@ -59,8 +59,8 @@ func NewMessaging() (*messaging.Client, error) {
 	return client, err
 }
 
-// NewMessage returns a new message struct
-func NewMessage(title, body string) *messaging.Message {
+// NewMessage returns a new FCM message struct
+func NewMessage(topic, title, body string) *messaging.Message {
 	return &messaging.Message{
 		Notification: &messaging.Notification{
 			Title: title,
@@ -71,7 +71,7 @@ func NewMessage(title, body string) *messaging.Message {
 			"body":         body,
 			"click_action": "FLUTTER_NOTIFICATION_CLICK",
 		},
-		Topic: "all",
+		Topic: topic,
 		// https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
 		Android: &messaging.AndroidConfig{
 			Priority: "high",
@@ -79,7 +79,8 @@ func NewMessage(title, body string) *messaging.Message {
 	}
 }
 
-func NewMessageFromAlertmanagerData(m *template.Data) (*messaging.Message, error) {
+// NewMessageFromAlertmanagerDats returns a new FCM message from alertmanager POST data
+func NewMessageFromAlertmanagerData(topic string, m *template.Data) (*messaging.Message, error) {
 	title, err := tmpltextExecuteToString(tmplTitle, m)
 	if err != nil {
 		return nil, &TemplateError{Type: "title", Err: err}
@@ -90,7 +91,7 @@ func NewMessageFromAlertmanagerData(m *template.Data) (*messaging.Message, error
 		return nil, &TemplateError{Type: "body", Err: err}
 	}
 
-	return NewMessage(title, body), nil
+	return NewMessage(topic, title, body), nil
 }
 
 func tmpltextExecuteToString(tmpl *tmpltext.Template, data interface{}) (string, error) {
