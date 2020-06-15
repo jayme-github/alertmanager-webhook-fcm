@@ -1,7 +1,7 @@
 # alertmanager-webhook-fcm
 Prometheus Alertmanager receiver that sends messages via Firebase Cloud Messaging
 
-[![Build Status](https://travis-ci.org/jayme-github/alertmanager-webhook-fcm.svg?branch=master)](https://travis-ci.org/jayme-github/alertmanager-webhook-fcm) ![Docker Pulls](https://img.shields.io/docker/pulls/jaymedh/alertmanager-webhook-fcm)
+[![Build Status](https://travis-ci.org/jayme-github/alertmanager-webhook-fcm.svg?branch=master)](https://travis-ci.org/jayme-github/alertmanager-webhook-fcm) [![Docker Pulls](https://img.shields.io/docker/pulls/jaymedh/alertmanager-webhook-fcm)](https://hub.docker.com/repository/docker/jaymedh/alertmanager-webhook-fcm)
 
 # Usage
 ## Alertmanager API endpoint
