@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"strings"
 	tmpltext "text/template"
+	"time"
 
 	"github.com/prometheus/alertmanager/template"
 	"golang.org/x/net/context"
@@ -59,18 +60,15 @@ func NewMessaging() (*messaging.Client, error) {
 	return client, err
 }
 
-// NewMessage returns a new FCM message struct
-func NewMessage(topic, title, body string) *messaging.Message {
+func NewDataMessage(topic, title, body string) *messaging.Message {
+	unixMillisecondsUTC := time.Now().UTC().UnixNano() / 1000000
+	data := map[string]string{
+		"title":    title,
+		"body":     body,
+		"pageTime": string(unixMillisecondsUTC),
+	}
 	return &messaging.Message{
-		Notification: &messaging.Notification{
-			Title: title,
-			Body:  body,
-		},
-		Data: map[string]string{
-			"title":        title,
-			"body":         body,
-			"click_action": "FLUTTER_NOTIFICATION_CLICK",
-		},
+		Data:  data,
 		Topic: topic,
 		// https://firebase.google.com/docs/cloud-messaging/concept-options#setting-the-priority-of-a-message
 		Android: &messaging.AndroidConfig{
@@ -79,7 +77,18 @@ func NewMessage(topic, title, body string) *messaging.Message {
 	}
 }
 
-// NewMessageFromAlertmanagerDats returns a new FCM message from alertmanager POST data
+// NewNoficationMessage returns a new FCM message including notificaton data
+func NewNoficationMessage(topic, title, body string) *messaging.Message {
+	message := NewDataMessage(topic, title, body)
+	message.Notification = &messaging.Notification{
+		Title: title,
+		Body:  body,
+	}
+	message.Data["click_action"] = "FLUTTER_NOTIFICATION_CLICK"
+	return message
+}
+
+// NewMessageFromAlertmanagerDats returns a new FCM data message from alertmanager POST data
 func NewMessageFromAlertmanagerData(topic string, m *template.Data) (*messaging.Message, error) {
 	title, err := tmpltextExecuteToString(tmplTitle, m)
 	if err != nil {
@@ -91,7 +100,7 @@ func NewMessageFromAlertmanagerData(topic string, m *template.Data) (*messaging.
 		return nil, &TemplateError{Type: "body", Err: err}
 	}
 
-	return NewMessage(topic, title, body), nil
+	return NewDataMessage(topic, title, body), nil
 }
 
 func tmpltextExecuteToString(tmpl *tmpltext.Template, data interface{}) (string, error) {
