@@ -3,6 +3,7 @@ package main
 import (
 	"bytes"
 	"fmt"
+	"strconv"
 	"strings"
 	tmpltext "text/template"
 	"time"
@@ -65,7 +66,7 @@ func NewDataMessage(topic, title, body string) *messaging.Message {
 	data := map[string]string{
 		"title":    title,
 		"body":     body,
-		"pageTime": string(unixMillisecondsUTC),
+		"pageTime": strconv.FormatInt(unixMillisecondsUTC, 10),
 	}
 	return &messaging.Message{
 		Data:  data,
