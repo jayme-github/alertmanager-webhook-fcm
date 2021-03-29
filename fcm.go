@@ -21,7 +21,7 @@ const (
 	bodyTemplate = `{{- $lastsummary := "" -}}
 {{- range $alert := .Alerts -}}
   {{- if not (eq $lastsummary $alert.Annotations.summary) }}
-  - {{ $alert.Annotations.summary -}}
+  - {{ $alert.Labels.instance }}: {{ $alert.Annotations.summary -}}
   {{- $lastsummary = $alert.Annotations.summary -}}
   {{- end -}}
 {{- end }}`
