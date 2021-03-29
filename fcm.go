@@ -37,6 +37,7 @@ func init() {
 	tmplBody = tmpltext.Must(tmpltext.New("body").Option("missingkey=zero").Parse(bodyTemplate))
 }
 
+// TemplateError is returned if there was an error rendering a template
 type TemplateError struct {
 	Type string
 	Err  error
@@ -61,6 +62,7 @@ func NewMessaging() (*messaging.Client, error) {
 	return client, err
 }
 
+// NewDataMessage returns a new FCM data message
 func NewDataMessage(topic, title, body string) *messaging.Message {
 	unixMillisecondsUTC := time.Now().UTC().UnixNano() / 1000000
 	data := map[string]string{
@@ -78,8 +80,8 @@ func NewDataMessage(topic, title, body string) *messaging.Message {
 	}
 }
 
-// NewNoficationMessage returns a new FCM message including notificaton data
-func NewNoficationMessage(topic, title, body string) *messaging.Message {
+// NewNotificationMessage returns a new FCM message including notification data
+func NewNotificationMessage(topic, title, body string) *messaging.Message {
 	message := NewDataMessage(topic, title, body)
 	message.Notification = &messaging.Notification{
 		Title: title,
@@ -89,7 +91,7 @@ func NewNoficationMessage(topic, title, body string) *messaging.Message {
 	return message
 }
 
-// NewMessageFromAlertmanagerDats returns a new FCM data message from alertmanager POST data
+// NewMessageFromAlertmanagerData returns a new FCM data message from alertmanager POST data
 func NewMessageFromAlertmanagerData(topic string, m *template.Data) (*messaging.Message, error) {
 	title, err := tmpltextExecuteToString(tmplTitle, m)
 	if err != nil {

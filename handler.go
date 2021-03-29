@@ -48,7 +48,7 @@ func genericHandler(w http.ResponseWriter, req *http.Request, ps httprouter.Para
 
 	topic := getParamTopic(ps)
 	if data.Notification {
-		message = NewNoficationMessage(topic, data.Title, data.Body)
+		message = NewNotificationMessage(topic, data.Title, data.Body)
 	} else {
 		message = NewDataMessage(topic, data.Title, data.Body)
 	}
